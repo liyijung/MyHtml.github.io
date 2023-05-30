@@ -1,0 +1,23 @@
+h1 { /*設定h1標題為黑色與文字靠左*/
+color: black; text-align: left;}
+
+a:visited {color:blue;}
+a:hover {color:red;}
+
+#letterspacing {letter-spacing:1px;}
+#shadow {text-shadow:5px 5px 5px gray;}
+
+ .responsive-iframe {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 高寬比，根據您的需求調整 */
+  height: 0;
+  overflow: hidden;}
+
+ .responsive-image {
+  max-width: 100%;
+  height: auto;}
+
+ .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;}

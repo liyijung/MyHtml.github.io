@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+	
+	<head>
+
+		<!--meta必須放在head內，文件前1024byte之內-->
+		<meta charset="utf-8">
+		
+		<!--title只能設定一次，瀏覽器標籤列;瀏覽器紀錄;我的最愛標題-->
+		<title>P4NS菜鳥慢飛期末專題報告</title>
+		<style>
+			@import url(./mystyle.css);
+			body{background-image: url(./image/background.png);}
+			#fig {border: inset 5px gray;
+				border-radius: 30px;}
+		</style>
+		
+	</head>
+
+	<body>
+
+		<header>
+			<!--"_self"瀏覽頁面下顯示(預設);"_blank"新增頁面-->
+			<a href="home.html" target="_self">首頁</a>
+		</header>
+
+		<br>
+
+		<section>
+			<!--層級內標題會自動降一級輸出-->
+			<h1 id="shadow">LINEBOT主要執行架構</h1>
+			<p><blockquote><!--縮排-->
+				這次報告的
+				<q>LINEBOT主要執行架構</q><br>
+				是使用者透過LINE發送訊息<br>
+				由LINE平台進行接收<br>
+				並且傳遞到我們所開發的程式<br>
+				在LINEBOT執行邏輯運算後<br>
+				透過LINE所提供的Messaging API<br>
+				將訊息回應給LINE平台<br>
+				最後再將訊息傳遞給使用者<br>
+			</blockquote></p>
+		</section>
+
+		<footer>
+			<img id="fig" src="./image/LINEBOT主要執行架構.png" width="600">
+		</footer>
+    </body>
+
+</html>

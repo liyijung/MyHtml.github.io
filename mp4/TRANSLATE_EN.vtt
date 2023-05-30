@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00.500 --> 00:03.000
+Then there is the real-time translation in charge of Xiaojun
+
+00:03.500 --> 00:06.000
+The modules used are json and requests
+
+00:06.500 --> 00:09.000
+After entering the words to be translated
+
+00:09.500 --> 00:13.000
+Connect to Youdao Translation API and return the translation result
+
+00:13.500 --> 00:16.000
+Currently supports Chinese to English and English to Chinese
