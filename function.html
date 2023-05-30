@@ -25,19 +25,7 @@
 		<script>
 			function showText(text) {
 			document.getElementById('inputText').value = text;}
-        </script>
-
-		<script>
-		  // 取得 outputTextArea 元素
-		  var outputTextArea = document.getElementById("outputTextArea");
-
-		  // 設定要回傳的訊息
-		  var message = "response";
-
-		  // 將訊息設定為 outputTextArea 的內容
-		  outputTextArea.value = message;
 		</script>
-
 
 	</head>
 
@@ -95,7 +83,7 @@
 				  <input type="reset" value="取消" tabindex="3"></p>
 				<p><textarea id="outputTextArea" name="outputText" 
 				  placeholder="確認後將在此區域回傳訊息結果" 
-				  rows="10" cols="58" tabindex="4"></textarea></p>
+				  rows="10" cols="58" tabindex="4">{{ reply_text }}</textarea></p>				
 			  </form>
 		</footer>
 	</body>
