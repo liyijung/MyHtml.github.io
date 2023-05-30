@@ -27,16 +27,36 @@
 			document.getElementById('inputText').value = text;}
         </script>
 
-		<script>
-			// 取得 outputTextArea 元素
-			var outputTextArea = document.getElementById("outputTextArea");
+	<script>
+	  // 獲取表單元素
+	  var form = document.querySelector('form');
 
-			// 設定要回傳的訊息
-			var message = "outputText";
+	  // 監聽表單提交事件
+	  form.addEventListener('submit', function(event) {
+	    event.preventDefault(); // 阻止表單默認提交行為
 
-			// 將訊息設定為 outputTextArea 的內容
-			outputTextArea.value = message;
-		</script>
+	    // 獲取輸入文本框和輸出文本框的元素
+	    var inputText = document.getElementById('inputText');
+	    var outputTextArea = document.getElementById('outputTextArea');
+
+	    // 構造要提交的數據
+	    var formData = new FormData();
+	    formData.append('function_options', inputText.value);
+
+	    // 發送POST請求
+	    fetch(form.action, {
+	      method: 'POST',
+	      body: formData
+	    })
+	    .then(response => response.text()) // 將響應轉換為文本
+	    .then(data => {
+	      outputTextArea.value = data; // 將響應文本設置為輸出文本框的值
+	    })
+	    .catch(error => {
+	      console.error('Error:', error);
+	    });
+	  });
+	</script>
 
 
 	</head>
@@ -86,7 +106,7 @@
 		</section>
 
 		<footer>
-			<form action=" https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app/submit" method="post">
+			<form action="https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app/submit" method="post">
 				<p>功能選項：<input id="inputText" name="function_options" 
 				  placeholder="請點選上方功能區" autofocus></p>
 				<p><textarea id="myTextarea" name="inputText" placeholder="請在此區域輸入文字" 
@@ -95,7 +115,7 @@
 				  <input type="reset" value="取消" tabindex="3"></p>
 				<p><textarea id="outputTextArea" name="outputText" 
 				  placeholder="確認後將在此區域回傳訊息結果" 
-				  rows="10" cols="58" tabindex="4">{{ response.reply_text }}</textarea></p>
+				  rows="10" cols="58" tabindex="4"></textarea></p>
 			  </form>
 		</footer>
 	</body>
