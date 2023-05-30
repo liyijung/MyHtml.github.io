@@ -26,37 +26,38 @@
 			function showText(text) {
 			document.getElementById('inputText').value = text;}
 		</script>
-		
-		<script>
-		  // 獲取表單元素
-		  var form = document.querySelector('form');
+	<script>
+	    window.addEventListener('DOMContentLoaded', function() {
+	      // 获取表单元素
+	      var form = document.querySelector('form');
 
-		  // 監聽表單提交事件
-		  form.addEventListener('submit', function(event) {
-		    event.preventDefault(); // 阻止表單默認提交行為
+	      // 监听表单提交事件
+	      form.addEventListener('submit', function(event) {
+		event.preventDefault(); // 阻止表单默认提交行为
 
-		    // 獲取輸入文本框和輸出文本框的元素
-		    var inputText = document.getElementById('inputText');
-		    var outputTextArea = document.getElementById('outputTextArea');
+		// 获取输入文本框和输出文本框的元素
+		var inputText = document.getElementById('inputText');
+		var outputTextArea = document.getElementById('outputTextArea');
 
-		    // 構造要提交的數據
-		    var formData = new FormData();
-		    formData.append('function_options', inputText.value);
+		// 构造要提交的数据
+		var formData = new FormData();
+		formData.append('function_options', inputText.value);
 
-		    // 發送POST請求
-		    fetch(form.action, {
-		      method: 'POST',
-		      body: formData
-		    })
-		    .then(response => response.text()) // 將響應轉換為文本
-		    .then(data => {
-		      outputTextArea.innerHTML = data; // 將響應文本設置為輸出文本框的內容
-		    })
-		    .catch(error => {
-		      console.error('Error:', error);
-		    });
-		  });
-		</script>
+		// 发送 POST 请求
+		fetch(form.action, {
+		  method: 'POST',
+		  body: formData
+		})
+		.then(response => response.text()) // 将响应转换为文本
+		.then(data => {
+		  outputTextArea.value = data; // 将响应文本设置为输出文本框的值
+		})
+		.catch(error => {
+		  console.error('Error:', error);
+		});
+	      });
+	    });
+	  </script>
 
 	</head>
 
