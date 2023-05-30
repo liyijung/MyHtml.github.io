@@ -26,6 +26,37 @@
 			function showText(text) {
 			document.getElementById('inputText').value = text;}
 		</script>
+		
+		<script>
+		  // 获取表单元素
+		  var form = document.querySelector('form');
+
+		  // 监听表单提交事件
+		  form.addEventListener('submit', function(event) {
+		    event.preventDefault(); // 阻止表单默认提交行为
+
+		    // 获取输入文本框和输出文本框的元素
+		    var inputText = document.getElementById('inputText');
+		    var outputTextArea = document.getElementById('outputTextArea');
+
+		    // 构造要提交的数据
+		    var formData = new FormData();
+		    formData.append('function_options', inputText.value);
+
+		    // 发送POST请求
+		    fetch(form.action, {
+		      method: 'POST',
+		      body: formData
+		    })
+		    .then(response => response.text()) // 将响应转换为文本
+		    .then(data => {
+		      outputTextArea.value = data; // 将响应文本设置为输出文本框的值
+		    })
+		    .catch(error => {
+		      console.error('Error:', error);
+		    });
+		  });
+		</script>
 
 	</head>
 
