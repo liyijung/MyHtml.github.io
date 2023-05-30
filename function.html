@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+	
+	<head>
+
+		<!--meta必須放在head內，文件前1024byte之內-->
+		<meta charset="utf-8">
+		
+		<!--title只能設定一次，瀏覽器標籤列;瀏覽器紀錄;我的最愛標題-->
+		<title>P4NS菜鳥慢飛期末專題報告</title>
+		<style>
+			@import url(./mystyle.css);
+			body{background-image: url(./image/background.png);}
+			table.backcolor{background-color: #ecfefe;}
+			body {
+				background-image: url(./image/left__empty.png);
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-attachment: fixed;}
+			#myTextarea {
+				overflow-y: scroll;
+				resize: none;}
+		</style>
+
+		<script>
+			function showText(text) {
+			document.getElementById('inputText').value = text;}
+        </script>
+
+		<script>
+			// 取得 outputTextArea 元素
+			var outputTextArea = document.getElementById("outputTextArea");
+
+			// 設定要回傳的訊息
+			var message = "outputText";
+
+			// 將訊息設定為 outputTextArea 的內容
+			outputTextArea.value = message;
+		</script>
+
+
+	</head>
+
+	<body>
+		<header>
+			<!--"_self"瀏覽頁面下顯示(預設);"_blank"新增頁面-->
+			<a href="home.html" target="_self">首頁</a>
+			<a href="otherfunction.html">其他功能</a>
+		</header>
+
+		<section>
+			<h1 id="shadow">歡迎進入linebot生活小秘書</h1>
+			<table border="1" class="backcolor">
+				<thead><!--建立表頭-->
+					<tr><th colspan="5"><a href="function.html">功能介紹</a></th></tr>
+				</thead>
+
+				<tbody><!--建立表格本體-->
+					<tr>
+						<td><a href="openai.html">AI聊天</a></td>
+						<td><a href="translate.html">即時翻譯</a></td>
+						<td><a href="stock.html">即時股票資訊</a></td>
+						<td><a href="prizes.html">發票兌獎</a></td>
+						<td><a href="zodiac.html">查詢BMI或生肖星座</a></td>
+					</tr>
+					<tr>
+						<td colspan="5">
+							<img src="./image/功能介紹.png" class="image-container" 
+								usemap="#MyMap" width="450" height="300">
+								<map name="MyMap">
+									<area shape="rect" coords="300,150,450,300" 
+										onclick="showText('@AI聊天')">
+									<area shape="rect" coords="150,150,300,300" 
+										onclick="showText('@即時翻譯')">
+									<area shape="rect" coords="0,150,150,300" 
+										onclick="showText('@即時股票資訊')">
+									<area shape="rect" coords="0,0,150,150" 
+										onclick="showText('@發票兌獎')">
+									<area shape="rect" coords="300,0,450,150" 
+										onclick="showText('@查詢BMI或生肖星座')">
+								</map>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<footer>
+			<form action=" https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app/submit" method="post">
+				<p>功能選項：<input id="inputText" name="function_options" 
+				  placeholder="請點選上方功能區" autofocus></p>
+				<p><textarea id="myTextarea" name="inputText" placeholder="請在此區域輸入文字" 
+				  rows="4" cols="58" tabindex="1"></textarea></p>
+				<p><input type="submit" value="確認" tabindex="2">
+				  <input type="reset" value="取消" tabindex="3"></p>
+				<p><textarea id="outputTextArea" name="outputText" 
+				  placeholder="確認後將在此區域回傳訊息結果" 
+				  rows="10" cols="58" tabindex="4">{{ response.reply_text }}</textarea></p>
+			  </form>
+		</footer>
+	</body>
+
+</html>
