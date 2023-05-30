@@ -26,38 +26,38 @@
 			function showText(text) {
 			document.getElementById('inputText').value = text;}
 		</script>
-	<script>
-	    window.addEventListener('DOMContentLoaded', function() {
-	      // 获取表单元素
-	      var form = document.querySelector('form');
+		<script>
+		    window.addEventListener('DOMContentLoaded', function() {
+		      // 获取表单元素
+		      var form = document.querySelector('form');
 
-	      // 监听表单提交事件
-	      form.addEventListener('submit', function(event) {
-		event.preventDefault(); // 阻止表单默认提交行为
+		      // 监听表单提交事件
+		      form.addEventListener('submit', function(event) {
+			event.preventDefault(); // 阻止表单默认提交行为
 
-		// 获取输入文本框和输出文本框的元素
-		var inputText = document.getElementById('inputText');
-		var outputTextArea = document.getElementById('outputTextArea');
+			// 获取输入文本框和输出文本框的元素
+			var inputText = document.getElementById('inputText');
+			var outputTextArea = document.getElementById('outputTextArea');
 
-		// 构造要提交的数据
-		var formData = new FormData();
-		formData.append('function_options', inputText.value);
+			// 构造要提交的数据
+			var formData = new FormData();
+			formData.append('function_options', inputText.value);
 
-		// 发送 POST 请求
-		fetch(form.action, {
-		  method: 'POST',
-		  body: formData
-		})
-		.then(response => response.text()) // 将响应转换为文本
-		.then(data => {
-		  outputTextArea.value = data; // 将响应文本设置为输出文本框的值
-		})
-		.catch(error => {
-		  console.error('Error:', error);
-		});
-	      });
-	    });
-	  </script>
+			// 发送 POST 请求
+			fetch(form.action, {
+			  method: 'POST',
+			  body: formData
+			})
+			.then(response => response.text()) // 将响应转换为文本
+			.then(data => {
+			  outputTextArea.value = data; // 将响应文本设置为输出文本框的值
+			})
+			.catch(error => {
+			  console.error('Error:', error);
+			});
+		      });
+		    });
+		  </script>
 		
 	</head>
 
@@ -106,11 +106,11 @@
 		</section>
 
 		<form action="https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app/submit" method="post">
-		  <p>功能選項：<input id="inputText" name="function_options" placeholder="請點選上方功能區" autofocus></p>
-		  <p><textarea id="myTextarea" name="inputText" placeholder="請在此區域輸入文字" rows="4" cols="58" tabindex="1"></textarea></p>
-		  <p><input type="submit" value="確認" tabindex="2">
-		  <input type="reset" value="取消" tabindex="3"></p>
-			<textarea id="outputTextArea" name="outputText" placeholder="確認後將在此區域回傳訊息結果" rows="10" cols="58" tabindex="4">{{ reply_text }}</textarea>
+			<p>功能選項：<input id="inputText" name="function_options" placeholder="請點選上方功能區" autofocus></p>
+			<p><textarea id="myTextarea" name="inputText" placeholder="請在此區域輸入文字" rows="4" cols="58" tabindex="1"></textarea></p>
+			<p><input type="submit" value="確認" tabindex="2">
+			<input type="reset" value="取消" tabindex="3"></p>
+			<p><textarea id="outputTextArea" name="outputText" placeholder="確認後將在此區域回傳訊息結果" rows="10" cols="58" tabindex="4"></textarea></p>
 		</form>
 	</body>
 
