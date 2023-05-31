@@ -8,7 +8,7 @@ function sendRequest() {
     data: { function_options: function_options, inputText: inputText },
     success: function(response) {
       var result = response.result;
-      var formattedResult = result.replace(/\n/g, "<br>");
+      var formattedResult = result.replace("\n", "<br>");
       document.getElementById("outputText").innerHTML = formattedResult;
     },
     error: function() {
