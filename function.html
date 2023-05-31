@@ -82,24 +82,22 @@
 			placeholder="確認後將在此區域回傳訊息結果" 
 			readonly></textarea></p>
 		
-		<script>
-			function sendRequest() {
-				var func = document.getElementById("function").value;
-				var input = document.getElementById("inputText").value;
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("outputText").value = this.responseText;
-					}
-				};
-				var url = "https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app/submit?input=" + 
-					encodeURIComponent(input) + "&function_options=" + encodeURIComponent(func);
-				xhttp.open("GET", url, true);
-				xhttp.send();
-			}
-		</script>
-			
-
 	</body>
-
+	
+	<script>
+		function sendRequest() {
+			var func = document.getElementById("function").value;
+			var input = document.getElementById("inputText").value;
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("outputText").value = this.responseText;
+				}
+			};
+			var url = "https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app/submit?input=" + 
+				encodeURIComponent(input) + "&function_options=" + encodeURIComponent(func);
+			xhttp.open("GET", url, true);
+			xhttp.send();
+		}
+	</script>
 </html>
