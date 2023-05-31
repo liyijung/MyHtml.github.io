@@ -73,25 +73,29 @@
 			document.getElementById('function').value = text;}
         </script>
 
-	    <input type="text" id="inputText" placeholder="在此输入文本">
-	    <button onclick="sendRequest()">发送请求</button>
+	    <input type="text" id="inputBox" placeholder="输入文本">
+	    <button onclick="callPython()">执行Python</button>
 	    <br>
-	    <textarea id="outputText" rows="5" cols="50" readonly></textarea>
-		
+	    <textarea id="outputBox" rows="4" cols="50" readonly></textarea>
+
+	    <script>
+		function callPython() {
+		    var inputText = document.getElementById("inputBox").value;
+
+		    // 使用XMLHttpRequest或fetch函数将inputText发送到ngrok的URL上
+		    // 例如，可以使用fetch函数：
+		    fetch("https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app", {
+			method: "POST",
+			body: JSON.stringify({input: inputText})
+		    })
+		    .then(response => response.json())
+		    .then(data => {
+			// 将Python返回的结果显示在输出框中
+			document.getElementById("outputBox").value = data.output;
+		    })
+		    .catch(error => console.error('Error:', error));
+		}
+	    </script>		
 	</body>
 	
-
-	<script>
-	    function sendRequest() {
-		var input = document.getElementById("inputText").value;
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("outputText").value = this.responseText;
-		    }
-		};
-		xhttp.open("GET", "https://ac31-2001-b011-5c00-1a21-60eb-9439-a5ff-3b66.ngrok-free.app/process?input=" + input, true);
-		xhttp.send();
-	    }
-	</script>
 </html>
