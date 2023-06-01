@@ -1,6 +1,8 @@
 h1 { /*設定h1標題為黑色與文字靠左*/
 color: black; text-align: left;}
 
+body{background-image: url(./image/background.png);}
+
 a:visited {color:blue;}
 a:hover {color:red;}
 
