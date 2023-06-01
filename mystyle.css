@@ -3,7 +3,7 @@ color: black; text-align: left;}
 
 body {
  background-image: url(./image/left__empty.png);
- background-repeat: no-repeat;
+ background-repeat: repeat;
  background-position: center center;
  background-attachment: fixed;}
 a:visited {color:blue;}
