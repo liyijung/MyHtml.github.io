@@ -6,6 +6,16 @@ body {
  background-repeat: repeat;
  background-position: center center;
  background-attachment: fixed;}
+
+@media screen and (min-width: 1280px) {
+  body { font-size: large; }}
+
+@media screen and (max-width: 1279px) and (min-width:480px) {
+  body { font-size: medium; }}
+    
+@media screen and (max-width: 480px) {
+  body { font-size: small; }}
+
 a:visited {color:blue;}
 a:hover {color:red;}
 
